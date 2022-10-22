@@ -2,10 +2,10 @@
   "name": "serendipity",
   "version": "1.0.0",
   "description": "Project 2",
-  "main": "server.js",
+  "main": "app.js",
   "scripts": {
-    "start": "node server.js",
-    "devstart": "nodemon server.js",
+    "start": "node app.js",
+    "devstart": "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
