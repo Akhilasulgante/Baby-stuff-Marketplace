@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trashare Login</title>
+    <link rel="icon" href="/images/icon.ico" type="image/x-icon" />
+
+    <!-- Bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/style.css" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/registration.css" />
+</head>
+
+<body>
+    <header id="header" class="sticky-top"></header>
+
+    <main>
+        <div class="container border position-relative">
+            <h1>Login</h1>
+
+            <div class="mb-2 p-2 rounded visually-hidden" id="loginErrorMsg"></div>
+
+            <div id="input-div">
+                <form id="loginForm" autocomplete="on">
+                    <div class="row">
+                        <div>
+                            <label>Email</label>
+                            <input class="form-control" id="email" type="email" maxlength="64" name="email" required />
+                            <div id="emailErrorMsg" class="invalid-feedback">
+                                Please input email
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div>
+                            <label>Password</label>
+                            <input class="form-control" id="passwordInput" type="password" maxlength="64"
+                                name="password" required />
+                            <div class="invalid-feedback">
+                                Please input password
+                            </div>
+                        </div>
+                        <div>
+                            <input class="form-check-input" id="passwordToggler" type="checkbox" />
+                            Show Password
+                        </div>
+                    </div>
+                    <div class="row mt-2 mb-2">
+                        <button type="button" class="btn btn-primary btn-md mt-2" id="loginButton">
+                            Login
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div>Trashare © 2021</div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kQtW33rZJAHjgefvhyyzcGF3C5TFyBQBA13V1RKPf4uH+bwyzQxZ6CmMZHmNBEfJ"
+        crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/8ec949be44.js" crossorigin="anonymous"></script>
+    <script src="/javascripts/header.js"></script>
+    <script type="module" src="/javascripts/utils.js"></script>
+    <script type="module" src="/javascripts/login.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Serendipity Registration</title>
+    <link rel="icon" href="/images/icon.ico" type="image/x-icon" />
+
+    <!-- Bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/style.css" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/registration.css" />
+</head>
+
+<body>
+    <header id="header" class="sticky-top"></header>
+
+    <main>
+        <div class="container border position-relative">
+            <h1>Create account</h1>
+            <div id="input-div">
+                <form id="signUpForm" autocomplete="on">
+                    <div class="row">
+                        <div>
+                            <label>First Name</label>
+                            <input class="form-control" type="text" maxlength="50" name="firstName" tabindex="0"
+                                required />
+                            <div class="invalid-feedback">Please input a first name</div>
+                        </div>
+                        <div>
+                            <label>Last Name</label>
+                            <input class="form-control" type="text" maxlength="50" name="lastName" required />
+                            <div class="invalid-feedback">Please input a last name</div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div>
+                            <label>Email</label>
+                            <input class="form-control" id="email" type="email" maxlength="64" name="email" required />
+                            <div id="emailErrorMsg" class="invalid-feedback">Please input an email</div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div>
+                            <label>Password</label>
+                            <input class="form-control" id="passwordInput" type="password" maxlength="64"
+                                name="password" required />
+                            <div class="invalid-feedback">Please input a password</div>
+                        </div>
+                        <div>
+                            <input class="form-check-input" id="passwordToggler" type="checkbox" />
+                            <label for="passwordToggler">Show Password</label>
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <button type="button" class="btn btn-primary btn-md mt-2" id="signUpButton">
+                            Create Serendipity Account
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div>Serendipity © 2022</div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kQtW33rZJAHjgefvhyyzcGF3C5TFyBQBA13V1RKPf4uH+bwyzQxZ6CmMZHmNBEfJ"
+        crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/8ec949be44.js" crossorigin="anonymous"></script>
+    <script src="/javascripts/header.js"></script>
+    <script type="module" src="/javascripts/utils.js"></script>
+    <script type="module" src="/javascripts/registration.js"></script>
+</body>
+
+</html>

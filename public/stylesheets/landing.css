@@ -1,0 +1,61 @@
+/* Whole file by Fengrui Gan */
+main {
+    margin-top: 5em;
+}
+
+#box {
+    display: flex;
+    justify-content: center;
+}
+
+#brand h1 {
+    font-size: 5em;
+}
+
+#infoText {
+    text-align: center;
+    margin: 30px auto;
+    width: 50%;
+    color: #2992fa;
+}
+
+#viewPostButton {
+    margin-top: 35px;
+    color: #3fa0ff;
+    border-color: #6eb6fd;
+}
+
+#brand i {
+    align-self: center;
+    font-size: 3em;
+    margin-left: 0.25em;
+}
+
+#infoWrapper {
+    border-radius: 25px;
+    color: #3fa0ff;
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#quote {
+    display: flex;
+    justify-content: center;
+    font-size: 2.5em;
+}
+
+#quote .fa-quote-left {
+    align-self: flex-start;
+    margin-right: 0.25em;
+}
+
+#quote-words {
+    padding-top: 0.25em;
+}
+
+#quote .fa-quote-right {
+    align-self: flex-end;
+    padding-top: 1em;
+    margin-left: 0.25em;
+}
