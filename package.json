@@ -1,5 +1,5 @@
 {
-  "name": "project_code",
+  "name": "Serendipity",
   "version": "1.0.0",
   "description": "Project 2",
   "main": "server.js",
@@ -12,7 +12,7 @@
     "type": "git",
     "url": "git+https://github.com/Akhilasulgante/Serendipity.git#akhila"
   },
-  "author": "akhila",
+  "author": "akhila, Zhiyi Jin",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/Akhilasulgante/Serendipity/issues"
