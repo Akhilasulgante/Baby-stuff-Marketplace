@@ -1,14 +1,15 @@
-var express = require("express");
-var path = require("path");
-var cookieParser = require("cookie-parser");
-var logger = require("morgan");
+//By Zhiyi Jin
+const express = require("express");
+const path = require("path");
+const cookieParser = require("cookie-parser");
+const logger = require("morgan");
 require("dotenv").config();
 
 const postsRouter = require("./routes/posts");
 const pagesRouter = require("./routes/pages");
 const usersRouter = require("./routes/users");
 
-var app = express();
+const app = express();
 
 app.use(logger("dev"));
 app.use(express.json());
