@@ -1,6 +1,5 @@
 const express = require("express");
 const router = express.Router();
-const path = require("path");
 const databaseManager = require("../db/db");
 
 // By Zhiyi Jin
@@ -23,6 +22,7 @@ router.get("/", async (req, res) => {
 // By Zhiyi Jin
 // create default post
 router.get("/createDefaultPosts", async function (req, res) {
+    let statusCode = 200;
     try {
         await databaseManager.createDefaultPosts("posts");
     } catch (err) {
