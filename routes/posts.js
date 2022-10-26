@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const databaseManager = require("../db/db");
+const databaseManager = require("../db/MyMongoDB");
 
 // By Zhiyi Jin
 // Read all posts

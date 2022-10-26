@@ -3,7 +3,7 @@ const { MongoClient } = require("mongodb");
 require("dotenv").config();
 const uuid = require("uuid").v4;
 
-function MyDB() {
+function MyMongoDB() {
     const myDB = {};
     const url = process.env.DB_URL || "mongodb://localhost:27017";
     const DB_NAME = "baby-stuff-sharing-db";
@@ -82,4 +82,4 @@ function MyDB() {
     return myDB;
 }
 
-module.exports = MyDB();
+module.exports = MyMongoDB();
