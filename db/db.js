@@ -71,6 +71,7 @@ function MyDB() {
             const db = client.db(DB_NAME);
             const collection = db.collection(collectionName);
             let res = await collection.find(query).toArray();
+            console.log("read posts", res);
             return res;
         } finally {
             console.log("Closing the connection");
