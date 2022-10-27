@@ -31,7 +31,7 @@ function setGoogleMap(post) {
         center: latLng,
         zoom: 10,
     };
-
+    const google = window.google;
     const map = new google.maps.Map(document.getElementById("map"), options);
 
     new google.maps.Circle({
@@ -55,7 +55,8 @@ function showPostDetails(data) {
     title.innerHTML = data.title;
     siteTitle.innerHTML = "Serendipity: " + data.title;
     description.innerHTML = data.description;
-    createdAt.innerHTML = "Published: " + timediff(data.createdAt);
+
+    createdAt.innerHTML = "Published: " + getDate(data.createdAt);
 
     //allow user to delete post
     const user = JSON.parse(sessionStorage.getItem("user"));
@@ -85,47 +86,15 @@ function showPostDetails(data) {
 }
 
 // calculate the time past after the post is created
-function timediff(createdTime) {
-    let diff = new Date().getTime() - new Date(parseInt(createdTime));
-    let seconds = Math.floor(diff / 1000),
-        minutes = Math.floor(seconds / 60),
-        hours = Math.floor(minutes / 60),
-        days = Math.floor(hours / 24),
-        years = Math.floor(days / 365);
+function getDate(createdTime) {
+    let date = new Date(parseInt(createdTime));
 
-    switch (true) {
-        case days >= 365:
-            if (years == 1) {
-                return years + " year ago";
-            } else {
-                return years + " years ago";
-            }
-        case hours >= 24 && days < 365:
-            if (days == 1) {
-                return days + " day ago";
-            } else {
-                return days + " days ago";
-            }
-        case minutes >= 60 && hours < 24:
-            if (hours == 1) {
-                return hours + " hour ago";
-            } else {
-                return hours + " hours ago";
-            }
-        case seconds > 60 && minutes < 60:
-            if (minutes == 1) {
-                return minutes + " minute ago";
-            } else {
-                return minutes + " minutes ago";
-            }
-
-        default:
-            if (seconds == 1) {
-                return seconds + " second ago";
-            } else {
-                return seconds + " seconds ago";
-            }
-    }
+    let formatDate = date.toLocaleString("en-US", {
+        dateStyle: "long",
+        timeStyle: "short",
+        hour12: true,
+    });
+    return formatDate;
 }
 
 //Delete post function

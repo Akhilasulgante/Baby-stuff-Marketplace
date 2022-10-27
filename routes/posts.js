@@ -14,7 +14,6 @@ router.get("/", async (req, res) => {
     try {
         data = await databaseManager.read("posts", {}, methodChain);
     } catch (err) {
-        statusCode = 500;
         res.send(err);
     }
     res.send(JSON.stringify(data));
@@ -35,14 +34,12 @@ router.get("/createDefaultPosts", async function (req, res) {
 // By Zhiyi Jin
 // Get post with id
 router.get("/:id", async (req, res) => {
-    let statusCode = 200;
     let data;
     try {
         data = await databaseManager.read("posts", {
             _id: new ObjectId(req.params.id),
         });
     } catch (err) {
-        statusCode = 500;
         res.send(err);
     }
     res.json(data);
