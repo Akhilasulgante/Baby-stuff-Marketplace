@@ -14,4 +14,12 @@ body {
   font-size: 100px;
   font-weight: bolder;
   text-align: center;
+  font-family: "Sofia", sans-serif;
+}
+
+.quote {
+  font-size: 70px;
+  font-weight: bolder;
+  text-align: center;
+  font-family: "Sofia", sans-serif;
 }

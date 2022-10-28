@@ -24,7 +24,7 @@ router.get("/createpost", (req, res) => {
 // By Zhiyi Jin
 // Get post with id
 router.get("/posts/:id", (req, res) => {
-    res.sendFile(path.join(__dirname, "../public/postDetail.html"));
+  res.sendFile(path.join(__dirname, "../public/postDetail.html"));
 });
 
 module.exports = router;

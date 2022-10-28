@@ -10,7 +10,6 @@ function MyMongoDB() {
 
     myDB.read = async (collectionName, query) => {
         let client;
-
         try {
             client = new MongoClient(url, { useUnifiedTopology: true });
             console.log("Connecting to the db");

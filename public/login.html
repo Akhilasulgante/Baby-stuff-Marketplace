@@ -4,9 +4,80 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Sign In</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF"
+      crossorigin="anonymous"
+    />
+    <!-- <script
+      src="https://code.jquery.com/jquery-3.6.0.js"
+      integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+      crossorigin="anonymous"
+    ></script> -->
+    <link rel="stylesheet" type="text/css" href="./stylesheets/login.css" />
   </head>
   <body>
-    Login
+    <!-- <div id="nav-placeholder"></div>
+    <script>
+      $(function () {
+        $("#nav-placeholder").load("navbar.html");
+      });
+    </script> -->
+    <div class="split left">
+      <a href="./index.html"
+        ><img class="logodisplay" src="./images/logo.png" alt="Logo"
+      /></a>
+      <div class="centered">
+        <img class="loginphoto" src="./images/login.jpg" alt="Baby photo" />
+      </div>
+    </div>
+
+    <div class="split right">
+      <div class="centered">
+        <div class="logininfo">
+          <div class="weltext"><h5>Welcome back</h5></div>
+          <form>
+            <!-- Email input -->
+            <div class="inputboxes">
+              <input
+                type="email"
+                id="form2Example1"
+                class="inputs"
+                name="username"
+                placeholder="username"
+              />
+            </div>
+
+            <!-- Password input -->
+            <div class="inputboxes">
+              <input
+                type="password"
+                id="form2Example2"
+                class="inputs"
+                name="password"
+                placeholder="password"
+              />
+            </div>
+
+            <!-- 2 column grid layout for inline styling -->
+            <div class="row mb-4">
+              <div class="col d-flex justify-content-center"></div>
+            </div>
+
+            <!-- Submit button -->
+            <button type="button" class="btn btn-primary btn-block mb-4">
+              Sign in
+            </button>
+
+            <!-- Register buttons -->
+            <div class="text-center">
+              <p>Not a member? <a href="./registration.html">Register</a></p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
