@@ -1,0 +1,17 @@
+body {
+  background-color: #d2daff;
+
+  background-image: url("../images/land.gif");
+  background-size: cover;
+  height: 100vh;
+
+  padding: 0;
+  margin: 0;
+}
+
+.appname {
+  padding-top: 100px;
+  font-size: 100px;
+  font-weight: bolder;
+  text-align: center;
+}

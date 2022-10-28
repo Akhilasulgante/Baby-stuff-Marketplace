@@ -1,0 +1,17 @@
+img {
+  padding-left: 5px;
+  width: 60px;
+  height: 60px;
+}
+
+.bgcolor {
+  background-color: #ffb9b9;
+}
+
+.rightContainer {
+  justify-content: right;
+}
+
+.leftContainer {
+  width: 1200px;
+}
