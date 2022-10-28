@@ -7,10 +7,7 @@ console.log("call postList.js");
     });
 
     let datas = await posts.json();
-    if (datas.length === 0) {
-        let res = await fetch("/api/posts/createDefaultPosts");
-        window.location.replace("/posts");
-    } else {
+    if (datas.length > 0) {
         const postList = document.querySelector(".post-list");
         postList.innerHTML = "";
         datas.forEach((data) => {
