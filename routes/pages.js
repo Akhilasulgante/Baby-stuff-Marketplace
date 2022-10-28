@@ -5,7 +5,20 @@ const path = require("path");
 // By Zhiyi Jin
 // Get all posts page
 router.get("/posts", (req, res) => {
-    res.sendFile(path.join(__dirname, "../public/postList.html"));
+  res.sendFile(path.join(__dirname, "../public/postList.html"));
+});
+
+// By Akhila
+router.get("/login", (req, res) => {
+  res.sendFile(path.join(__dirname, "../public/login.html"));
+});
+
+router.get("/signup", (req, res) => {
+  res.sendFile(path.join(__dirname, "../public/registration.html"));
+});
+
+router.get("/createpost", (req, res) => {
+  res.sendFile(path.join(__dirname, "../public/createPost.html"));
 });
 
 // By Zhiyi Jin

@@ -22,13 +22,13 @@ router.get("/", async (req, res) => {
 // By Zhiyi Jin
 // create default post
 router.get("/createDefaultPosts", async function (req, res) {
-    let statusCode = 200;
-    try {
-        await databaseManager.createDefaultPosts("posts");
-    } catch (err) {
-        statusCode = 500;
-    }
-    res.status(statusCode).send("");
+  let statusCode = 200;
+  try {
+    await databaseManager.createDefaultPosts("posts");
+  } catch (err) {
+    statusCode = 500;
+  }
+  res.status(statusCode).send("");
 });
 
 // By Zhiyi Jin
