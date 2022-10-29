@@ -13,6 +13,7 @@ async function initGoogleMap() {
 
 // Get post by Id
 async function getPost() {
+    
     const posts = await fetch("/api/posts/" + id);
     const datas = await posts.json();
     if (posts.ok) {
@@ -99,6 +100,8 @@ function getDate(createdTime) {
 
 //Delete post function
 async function deletePost() {
+    const url = location.pathname;
+    const id = url.substring(url.lastIndexOf("/") + 1);
     await fetch("/api/posts/" + id, {
         method: "delete",
     });
