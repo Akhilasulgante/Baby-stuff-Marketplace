@@ -36,48 +36,63 @@
 
     <div class="split right">
       <div class="centered">
-        <div class="logininfo">
-          <div class="weltext"><h5>Welcome back</h5></div>
-          <form>
-            <!-- Email input -->
-            <div class="inputboxes">
-              <input
-                type="email"
-                id="form2Example1"
-                class="inputs"
-                name="username"
-                placeholder="username"
-              />
+        <div class="mb-2 p-2 rounded visually-hidden" id="loginErrorMsg"></div>
+
+        <div id="input-div">
+          <form id="loginForm" autocomplete="on">
+            <div class="row">
+              <div>
+                <label>Email</label>
+                <input
+                  class="form-control"
+                  id="email"
+                  type="email"
+                  maxlength="64"
+                  name="email"
+                  required
+                />
+                <div id="emailErrorMsg" class="invalid-feedback">
+                  Please input email
+                </div>
+              </div>
             </div>
-
-            <!-- Password input -->
-            <div class="inputboxes">
-              <input
-                type="password"
-                id="form2Example2"
-                class="inputs"
-                name="password"
-                placeholder="password"
-              />
+            <div class="row">
+              <div>
+                <label>Password</label>
+                <input
+                  class="form-control"
+                  id="passwordInput"
+                  type="password"
+                  maxlength="64"
+                  name="password"
+                  required
+                />
+                <div class="invalid-feedback">Please input password</div>
+              </div>
+              <div>
+                <input
+                  class="form-check-input"
+                  id="passwordToggler"
+                  type="checkbox"
+                />
+                Show Password
+              </div>
             </div>
-
-            <!-- 2 column grid layout for inline styling -->
-            <div class="row mb-4">
-              <div class="col d-flex justify-content-center"></div>
-            </div>
-
-            <!-- Submit button -->
-            <button type="button" class="btn btn-primary btn-block mb-4">
-              Sign in
-            </button>
-
-            <!-- Register buttons -->
-            <div class="text-center">
-              <p>Not a member? <a href="./registration.html">Register</a></p>
+            <div class="row mt-2 mb-2">
+              <button
+                type="button"
+                class="btn btn-primary btn-md mt-2"
+                id="loginButton"
+              >
+                Login
+              </button>
             </div>
           </form>
         </div>
       </div>
     </div>
+    <script type="module" src="./javascripts/util.js"></script>
+    <script type="module" src="./javascripts/login.js"></script>
+    >
   </body>
 </html>

@@ -1,7 +1,7 @@
-// Akhila
+// Whole file by Fengrui Gan
 const express = require("express");
 const router = express.Router();
-const databaseManager = require("../db/databaseManager");
+const databaseManager = require("../db/MyMongoDB");
 
 // create new users
 router.post("/", async (req, res) => {
