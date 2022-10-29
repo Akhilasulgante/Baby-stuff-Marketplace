@@ -1,7 +1,6 @@
 const express = require("express");
 const router = express.Router();
 const path = require("path");
-
 // By Zhiyi Jin
 // Get all posts page
 router.get("/posts", (req, res) => {

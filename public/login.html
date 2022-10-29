@@ -26,9 +26,7 @@
       });
     </script> -->
     <div class="split left">
-      <a href="./index.html"
-        ><img class="logodisplay" src="./images/logo.png" alt="Logo"
-      /></a>
+      <a href="./index.html"><img class="logodisplay" src="./images/logo.png" alt="Logo" /></a>
       <div class="centered">
         <img class="loginphoto" src="./images/login.jpg" alt="Baby photo" />
       </div>
@@ -43,17 +41,8 @@
             <div class="row">
               <div>
                 <label>Email</label>
-                <input
-                  class="form-control"
-                  id="email"
-                  type="email"
-                  maxlength="64"
-                  name="email"
-                  required
-                />
-                <div id="emailErrorMsg" class="invalid-feedback">
-                  Please input email
-                </div>
+                <input class="form-control" id="email" type="email" maxlength="64" name="email" required="true" />
+                <div id="emailErrorMsg" class="invalid-feedback">Please input email</div>
               </div>
             </div>
             <div class="row">
@@ -65,27 +54,17 @@
                   type="password"
                   maxlength="64"
                   name="password"
-                  required
+                  required="true"
                 />
                 <div class="invalid-feedback">Please input password</div>
               </div>
               <div>
-                <input
-                  class="form-check-input"
-                  id="passwordToggler"
-                  type="checkbox"
-                />
+                <input class="form-check-input" id="passwordToggler" type="checkbox" />
                 Show Password
               </div>
             </div>
             <div class="row mt-2 mb-2">
-              <button
-                type="button"
-                class="btn btn-primary btn-md mt-2"
-                id="loginButton"
-              >
-                Login
-              </button>
+              <button type="submit" class="btn btn-primary btn-md mt-2" id="loginButton">Login</button>
             </div>
           </form>
         </div>

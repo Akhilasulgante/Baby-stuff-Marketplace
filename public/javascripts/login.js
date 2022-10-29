@@ -1,5 +1,5 @@
 // Akhila
-import { validateEmail, registerPasswordToggler } from "./utils.js";
+import { validateEmail, registerPasswordToggler } from "./util.js";
 
 registerPasswordToggler();
 let form = document.getElementById("loginForm");
@@ -8,6 +8,7 @@ let emailIsValid = false;
 // AJAX form submit
 (() => {
   if (JSON.parse(sessionStorage.getItem("user"))) {
+    console.log("reaching");
     window.location.replace("/posts");
   }
 

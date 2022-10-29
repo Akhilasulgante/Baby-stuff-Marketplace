@@ -5,8 +5,9 @@ const uuid = require("uuid").v4;
 
 function MyMongoDB() {
   const myDB = {};
-  const url = process.env.DB_URL || "mongodb://localhost:27017";
+  const url = "mongodb+srv://admin-ted:Test123@cluster0.dz0wqq8.mongodb.net/";
   const DB_NAME = "baby-stuff-sharing-db";
+  const USER_COLLECTION = "users";
 
   myDB.read = async (collectionName, query) => {
     let client;
@@ -47,14 +48,25 @@ function MyMongoDB() {
 
   myDB.authenticate = async (user) => {
     const client = new MongoClient(url);
-
     const db = client.db(DB_NAME);
-    const usersCol = db.collection(COLLECTION_NAME);
+    const usersCol = db.collection(USER_COLLECTION);
     console.log("searching for", user);
-    const res = await usersCol.findOne({ user: user.user });
+    const res = await usersCol.findOne({ email: user.email }).toArray();
     console.log("res", res, res.password === user.password);
     if (res.password === user.password) return true;
     return false;
+  };
+
+  myDB.create = async (user) => {
+    const client = new MongoClient(url);
+    const db = client.db(DB_NAME);
+    const usersCol = db.collection(USER_COLLECTION);
+    console.log("searching for", user);
+    const res = await usersCol
+      .insertOne({ email: user.email, firstName: user.firstName, lastName: user.lastName })
+      .toArray();
+
+    return true;
   };
 
   return myDB;

@@ -30,4 +30,4 @@ const registerPasswordToggler = () => {
   });
 };
 
-export { debounce, validateEmail, registerPasswordToggler };
+export default { debounce, validateEmail, registerPasswordToggler };
