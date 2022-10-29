@@ -5,7 +5,7 @@ const uuid = require("uuid").v4;
 
 function MyMongoDB() {
   const myDB = {};
-  const url = "mongodb+srv://admin-ted:Test123@cluster0.dz0wqq8.mongodb.net/";
+  const url = "localhost";
   const DB_NAME = "baby-stuff-sharing-db";
   const USER_COLLECTION = "users";
 
