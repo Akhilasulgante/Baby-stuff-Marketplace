@@ -57,14 +57,18 @@ function MyMongoDB() {
     return false;
   };
 
-  myDB.create = async (user) => {
+  myDB.create = async (collectionName, user) => {
+    console.log(user);
     const client = new MongoClient(url);
     const db = client.db(DB_NAME);
-    const usersCol = db.collection(USER_COLLECTION);
+    const usersCol = db.collection(collectionName);
     console.log("searching for", user);
-    const res = await usersCol
-      .insertOne({ email: user.email, firstName: user.firstName, lastName: user.lastName })
-      .toArray();
+    const res = await usersCol.insertOne({
+      email: user.email,
+      firstName: user.firstName,
+      lastName: user.lastName,
+      password: user.password,
+    });
 
     return true;
   };
