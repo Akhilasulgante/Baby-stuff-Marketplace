@@ -5,7 +5,7 @@ const uuid = require("uuid").v4;
 
 function MyMongoDB() {
   const myDB = {};
-  const url = "mongodb+srv://admin-ted:Test123@cluster0.dz0wqq8.mongodb.net/";
+  const url = process.env.MOGO_URL || "mongodb://localhost:27017";
   const DB_NAME = "baby-stuff-sharing-db";
   const USER_COLLECTION = "users";
 
@@ -51,7 +51,7 @@ function MyMongoDB() {
     const db = client.db(DB_NAME);
     const usersCol = db.collection(USER_COLLECTION);
     console.log("searching for", user);
-    const res = await usersCol.findOne({ email: user.email }).toArray();
+    const res = await usersCol.findOne({ email: user.email });
     console.log("res", res, res.password === user.password);
     if (res.password === user.password) return true;
     return false;
@@ -63,12 +63,7 @@ function MyMongoDB() {
     const db = client.db(DB_NAME);
     const usersCol = db.collection(collectionName);
     console.log("searching for", user);
-    const res = await usersCol.insertOne({
-      email: user.email,
-      firstName: user.firstName,
-      lastName: user.lastName,
-      password: user.password,
-    });
+    const res = await usersCol.insertOne({ email: user.email, firstName: user.firstName, lastName: user.lastName });
 
     return true;
   };
