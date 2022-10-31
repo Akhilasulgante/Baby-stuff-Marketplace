@@ -1,6 +1,6 @@
 // Dynamic rendering of navbar
 (() => {
-  let header = document.getElementById("header");
+  let navbar = document.getElementById("header");
 
   let user = JSON.parse(sessionStorage.getItem("user"));
   let loginSection = user
@@ -22,12 +22,12 @@
   let createPostLink = user
     ? `<li class="nav-item">
         <a class="nav-link" aria-current="page" href="/posts/createpost">
-          <i class="far fa-plus-square"></i> Post your stuff
+          <i class="far fa-plus-square"></i> Create post
         </a>
       </li>`
     : "";
 
-  header.innerHTML = `
+  navbar.innerHTML = `
   <nav id="navbar" class="navbar navbar-expand-lg navbar-light mynavbar-bg">
     <div class="container">
         <div class="leftContainer">
@@ -35,7 +35,6 @@
                 ><img src="/images/logo.png" alt="Serendipity Logo"
             /></a>
         </div>
-        <a class="navbar-brand" href="/">Serendipity</a>
         <button
           class="navbar-toggler"
           type="button"

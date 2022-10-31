@@ -64,6 +64,6 @@ body {
   align-items: center;
 }
 
-footer {
-  position: fixed;
+.passpad {
+  padding-top: 25px;
 }
