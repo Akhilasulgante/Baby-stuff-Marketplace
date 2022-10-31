@@ -2,10 +2,10 @@
 const { MongoClient } = require("mongodb");
 require("dotenv").config();
 const uuid = require("uuid").v4;
-
+import uuid from "uuid/v4.js";
 function MyMongoDB() {
   const myDB = {};
-  const url = process.env.MOGO_URL || "mongodb://localhost:27017";
+  const url = "mongodb+srv://admin-ted:Test123@cluster0.dz0wqq8.mongodb.net/";
   const DB_NAME = "baby-stuff-sharing-db";
   const USER_COLLECTION = "users";
 
