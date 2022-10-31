@@ -1,77 +1,60 @@
-import { validateEmail, registerPasswordToggler } from "./util.js";
+function LoginPage() {
+    const userLogin = {};
+    let form = document.getElementById("loginForm");
 
-registerPasswordToggler();
-let form = document.getElementById("loginForm");
-let emailIsValid = false;
-
-// AJAX form submit
-(() => {
-    if (JSON.parse(sessionStorage.getItem("user"))) {
-        window.location.replace("/posts");
-    }
-
-    let loginButton = document.getElementById("loginButton");
-    let errorMsg = document.getElementById("loginErrorMsg");
-
-    loginButton.addEventListener("click", async () => {
-        loginButton.classList.add("disabled");
-
-        if (!form.checkValidity()) {
-            form.classList.add("was-validated");
-            loginButton.classList.remove("disabled");
-            return;
-        }
-
-        if (!emailIsValid) {
-            loginButton.classList.remove("disabled");
-            return;
-        }
-
-        let formData = new FormData(form);
-        let data = {};
-        formData.forEach((val, key) => {
-            data[key] = val;
+    userLogin.togglerPassword = () => {
+        let passwordToggler = document.getElementById("passwordToggler");
+        let passwordInput = document.getElementById("passwordInput");
+        passwordToggler.addEventListener("click", () => {
+            if (passwordInput.type === "password") {
+                passwordInput.type = "text";
+            } else {
+                passwordInput.type = "password";
+            }
         });
-        let json = JSON.stringify(data);
+    };
 
-        let post = await fetch("/api/users/login", {
-            method: "post",
-            headers: { "Content-Type": "application/json" },
-            body: json,
-        });
-        if (post.ok) {
-            let result = await post.json();
-
-            sessionStorage.setItem("user", JSON.stringify(result.user));
+    userLogin.login = () => {
+        if (JSON.parse(sessionStorage.getItem("user"))) {
             window.location.replace("/posts");
-        } else {
-            let error = await post.json();
-            errorMsg.classList.remove("visually-hidden");
-            errorMsg.innerText = error.message;
         }
-        loginButton.classList.remove("disabled");
-    });
-})();
 
-// check email format
-(() => {
-    let email = document.getElementById("email");
-    let errorMsg = document.getElementById("emailErrorMsg");
-    const checkFormat = () => {
-        form.classList.remove("was-validated");
-        if (email.value === "") {
-            email.classList.add("is-invalid");
-            errorMsg.innerText = "Please input email";
-        } else if (!validateEmail(email.value)) {
-            email.classList.add("is-invalid");
-            errorMsg.innerText = "Email format incorrect";
-        } else {
-            emailIsValid = true;
-            email.classList.remove("is-invalid");
-        }
+        let loginButton = document.getElementById("loginButton");
+        let errorMsg = document.getElementById("loginErrorMsg");
+
+        loginButton.addEventListener("click", async () => {
+            loginButton.classList.add("disabled");
+
+            let formData = new FormData(form);
+            let data = {};
+            formData.forEach((val, key) => {
+                data[key] = val;
+            });
+            let json = JSON.stringify(data);
+
+            let post = await fetch("/api/users/login", {
+                method: "post",
+                headers: { "Content-Type": "application/json" },
+                body: json,
+            });
+            if (post.ok) {
+                let result = await post.json();
+
+                sessionStorage.setItem("user", JSON.stringify(result.user));
+                window.location.replace("/posts");
+            } else {
+                let error = await post.json();
+                errorMsg.classList.remove("visually-hidden");
+                errorMsg.innerText = error.message;
+            }
+            loginButton.classList.remove("disabled");
+        });
     };
-    email.onkeyup = () => {
-        emailIsValid = false;
-        checkFormat();
-    };
-})();
+    return userLogin;
+}
+
+const user = LoginPage();
+user.togglerPassword();
+user.login();
+
+export default LoginPage();
