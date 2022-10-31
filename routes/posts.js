@@ -3,6 +3,28 @@ const router = express.Router();
 const databaseManager = require("../db/MyMongoDB");
 const { ObjectId } = require("mongodb");
 
+const multer = require("multer");
+const uuid = require("uuid").v4;
+const cloudinary = require("cloudinary").v2;
+const { CloudinaryStorage } = require("multer-storage-cloudinary");
+let statusCode = 200;
+
+cloudinary.config({
+    cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+    api_key: process.env.CLOUDINARY_KEY,
+    api_secret: process.env.CLOUDINARY_SECRET,
+});
+
+const storage = new CloudinaryStorage({
+    cloudinary,
+    params: {
+        folder: "Serendipity",
+        allowedFormats: ["jpeg", "png", "jpg"],
+    },
+});
+
+const upload = multer({ storage });
+
 // By Zhiyi Jin
 // Read all posts
 router.get("/", async (req, res) => {
@@ -22,13 +44,33 @@ router.get("/", async (req, res) => {
 // By Zhiyi Jin
 // create default post
 router.get("/createDefaultPosts", async function (req, res) {
-  let statusCode = 200;
-  try {
-    await databaseManager.createDefaultPosts("posts");
-  } catch (err) {
-    statusCode = 500;
-  }
-  res.status(statusCode).send("");
+    let statusCode = 200;
+    try {
+        await databaseManager.createDefaultPosts("posts");
+    } catch (err) {
+        statusCode = 500;
+    }
+    res.status(statusCode).send("");
+});
+
+// Create new Post
+router.post("/", upload.array("images"), async (req, res) => {
+    console.log(req.body, req.files);
+
+    let postId = uuid();
+    console.log(postId.toString());
+    let data = { ...req.body, _id: new ObjectId(postId.toString()) };
+
+    data.images = req.files.map((f) => {
+        return f.path;
+    });
+    try {
+        await databaseManager.create("posts", data);
+    } catch (err) {
+        statusCode = 500;
+        data.message = err.message;
+    }
+    res.status(statusCode).send(JSON.stringify({ postId: postId }));
 });
 
 // By Zhiyi Jin

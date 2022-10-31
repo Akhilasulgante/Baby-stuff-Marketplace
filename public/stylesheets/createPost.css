@@ -1,0 +1,37 @@
+/* Whole file by Felix Chung */
+.post-description {
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 240px;
+  resize: vertical;
+  min-height: 240px;
+}
+
+.img {
+  width: 100%;
+}
+
+.border {
+  padding: 14px 18px;
+}
+
+main .container {
+  margin-top: 3em;
+  border-radius: 4px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+#map {
+  height: 500px;
+  width: 500px;
+  margin: 0 auto;
+}

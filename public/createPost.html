@@ -1,12 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body>
-    create post
-  </body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Create Post</title>
+        <link rel="icon" href="/images/icon.ico" type="image/x-icon" />
+        <!-- Bootstrap-->
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+            crossorigin="anonymous"
+        />
+        <!--Post style-->
+        <link rel="stylesheet" href="/stylesheets/style.css" />
+        <link
+            rel="stylesheet"
+            type="text/css"
+            href="/stylesheets/createPost.css"
+        />
+    </head>
+
+    <body>
+        <header id="header" class="sticky-top"></header>
+        <div id="page-container">
+            <div id="content-wrap">
+                <main>
+                    <div class="container">
+                        <h1 class="mb-3">New post</h1>
+                        <div class="border">
+                            <form
+                                id="createPostForm"
+                                enctype="multipart/form-data"
+                            >
+                                <div class="form-group">
+                                    <label for="inputTitle"> Post Title </label>
+                                    <input
+                                        class="form-control"
+                                        type="text"
+                                        name="title"
+                                        maxlength="64"
+                                        id="inputTitle"
+                                        required
+                                    />
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputDescription">
+                                        Description
+                                    </label>
+                                    <textarea
+                                        class="post-description"
+                                        name="description"
+                                        id="inputDescription"
+                                        maxlength="1000"
+                                        required
+                                    >
+                                    </textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="uploadImage"
+                                        >Choose an image</label
+                                    >
+                                    <input
+                                        type="file"
+                                        class="form-control"
+                                        id="uploadImage"
+                                        name="images"
+                                        multiple
+                                        required
+                                        accept="image/jpeg, image/png, image/gif"
+                                    />
+                                </div>
+                                <div
+                                    class="row mt-3 mb-3"
+                                    id="imagePreview"
+                                ></div>
+                                <div class="form-group">
+                                    <label for="inputLocation">Location</label>
+                                    <input
+                                        type="text"
+                                        class="form-control mb-3"
+                                        name="address"
+                                        id="inputLocation"
+                                        placeholder="1234 Main St, San Francisco, CA, 94111"
+                                        required
+                                    />
+                                </div>
+                                <div
+                                    id="map"
+                                    style="height: 500px; width: 500px"
+                                ></div>
+
+                                <button
+                                    id="submitButton"
+                                    type="submit"
+                                    class="btn btn-primary mt-3"
+                                >
+                                    Create Post
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </main>
+            </div>
+            <footer>
+                <div>Serendipity © 2022</div>
+            </footer>
+        </div>
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+            crossorigin="anonymous"
+        ></script>
+        <script src="/javascripts/header.js"></script>
+        <script src="/javascripts/createPost.js"></script>
+        <!-- Google Map API -->
+        <script
+            async
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBpthPT6SAcU2gcRtsp-KCHUL3dZ8sOx9U&libraries=places&callback=initGoogle"
+        ></script>
+    </body>
 </html>

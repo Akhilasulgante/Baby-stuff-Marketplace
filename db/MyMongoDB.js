@@ -1,7 +1,6 @@
 // By Zhiyi Jin and Akhila
 const { MongoClient } = require("mongodb");
 require("dotenv").config();
-const uuid = require("uuid").v4;
 
 function MyMongoDB() {
     const myDB = {};
@@ -44,6 +43,29 @@ function MyMongoDB() {
             console.log("Closing the connection");
             client.close();
         }
+    };
+
+    myDB.authenticate = async (collectionName, user) => {
+        const client = new MongoClient(url);
+        const db = client.db(DB_NAME);
+        const usersCol = db.collection(collectionName);
+        console.log("authenticate user", user);
+        const res = await usersCol.findOne({ email: user.email });
+        console.log("res", res, res.password === user.password);
+        if (res.password === user.password) return true;
+        return false;
+    };
+
+    myDB.create = async (collectionName, data, objectId) => {
+        console.log(data);
+        const client = new MongoClient(url);
+        const db = client.db(DB_NAME);
+        const collection = db.collection(collectionName);
+        if (objectId) data._id = new ObjectId(objectId);
+        console.log("create new data", data);
+        const res = await collection.insertOne(data);
+
+        return true;
     };
 
     return myDB;
