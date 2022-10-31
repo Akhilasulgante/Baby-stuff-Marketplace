@@ -55,22 +55,21 @@ router.get("/createDefaultPosts", async function (req, res) {
 
 // Create new Post
 router.post("/", upload.array("images"), async (req, res) => {
-    console.log(req.body, req.files);
+    let postId = "";
 
-    let postId = uuid();
-    console.log(postId.toString());
-    let data = { ...req.body, _id: new ObjectId(postId.toString()) };
+    let data = { ...req.body };
 
     data.images = req.files.map((f) => {
         return f.path;
     });
     try {
-        await databaseManager.create("posts", data);
+        postId = await databaseManager.create("posts", data);
     } catch (err) {
         statusCode = 500;
         data.message = err.message;
     }
-    res.status(statusCode).send(JSON.stringify({ postId: postId }));
+    console.log("postId: ", postId.toString());
+    res.status(statusCode).send(JSON.stringify({ postId: postId.toString() }));
 });
 
 // By Zhiyi Jin

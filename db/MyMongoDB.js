@@ -63,9 +63,9 @@ function MyMongoDB() {
         const collection = db.collection(collectionName);
         if (objectId) data._id = new ObjectId(objectId);
         console.log("create new data", data);
-        const res = await collection.insertOne(data);
+        await collection.insertOne(data);
 
-        return true;
+        return data._id;
     };
 
     return myDB;
