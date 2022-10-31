@@ -4,6 +4,9 @@ body {
 
 h1 {
   text-align: center;
+  font-family: "Sofia", sans-serif;
+  font-size: 30px;
+  text-shadow: 3px 3px 3px #ababab;
 }
 
 main {
@@ -17,7 +20,7 @@ main .container {
 }
 
 #loginErrorMsg {
-  background-color: rgba(255, 0, 0, 0.2);
+  background-color: rgb(193, 107, 107);
   border: 2px solid red;
 }
 
@@ -26,46 +29,38 @@ main .container {
   width: 50%;
 }
 
-/* Extra small devices (phones, 600px and down) */
+/* phone devices */
 @media only screen and (max-width: 600px) {
   main .container {
     width: 400px;
   }
 }
 
-/* Small devices (portrait tablets and large phones, 600px and up) */
+/* tablets devices */
 @media only screen and (min-width: 600px) {
   main .container {
     width: 400px;
   }
 }
 
-/* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
   main .container {
     width: 400px;
   }
 }
 
-/* Large devices (laptops/desktops, 992px and up) */
+/* Large devices*/
 @media only screen and (min-width: 992px) {
   main .container {
     width: 400px;
   }
 }
 
-/* Extra large devices (large laptops and desktops, 1200px and up) */
+/* Extra large devices */
 @media only screen and (min-width: 1200px) {
   main .container {
     width: 450px;
   }
-}
-
-.logodisplay {
-  position: fixed;
-  width: 90px;
-  height: 60px;
-  padding-left: 20px;
 }
 
 .containercolor {

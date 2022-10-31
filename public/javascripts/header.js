@@ -1,16 +1,16 @@
 // Dynamic rendering of navbar
 (() => {
-    let header = document.getElementById("header");
+  let header = document.getElementById("header");
 
-    let user = JSON.parse(sessionStorage.getItem("user"));
-    let loginSection = user
-        ? `<div id="greet">Hi, ${user.firstName} ${user.lastName}</div>
+  let user = JSON.parse(sessionStorage.getItem("user"));
+  let loginSection = user
+    ? `<div id="greet">Hi, ${user.firstName} ${user.lastName}</div>
         <ul class="navbar-nav">
           <li class="nav-item">
             <a class="nav-link" href="/" id="signOutLink"><i class="fas fa-sign-out-alt"></i> Sign out</a>
           </li>
         </ul>`
-        : `<ul class="navbar-nav">
+    : `<ul class="navbar-nav">
         <li class="nav-item">
           <a class="nav-link" href="/login"><i class="fas fa-sign-in-alt"></i> Sign in</a>
         </li>
@@ -19,15 +19,15 @@
         </li>
       </ul>`;
 
-    let createPostLink = user
-        ? `<li class="nav-item">
+  let createPostLink = user
+    ? `<li class="nav-item">
         <a class="nav-link" aria-current="page" href="/posts/createpost">
           <i class="far fa-plus-square"></i> Post your stuff
         </a>
       </li>`
-        : "";
+    : "";
 
-    header.innerHTML = `
+  header.innerHTML = `
   <nav id="navbar" class="navbar navbar-expand-lg navbar-light mynavbar-bg">
     <div class="container">
         <div class="leftContainer">
@@ -63,10 +63,10 @@
 })();
 
 (() => {
-    let signOut = document.getElementById("signOutLink");
-    if (signOut) {
-        signOut.addEventListener("click", () => {
-            sessionStorage.setItem("user", null);
-        });
-    }
+  let signOut = document.getElementById("signOutLink");
+  if (signOut) {
+    signOut.addEventListener("click", () => {
+      sessionStorage.setItem("user", null);
+    });
+  }
 })();
